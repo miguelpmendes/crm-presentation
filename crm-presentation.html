@@ -315,7 +315,7 @@
 
     #footer { position:fixed; bottom:0; left:0; right:0; height:32px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:500; letter-spacing:0.5px; color:var(--text-muted); border-top:1px solid var(--border); background:rgba(13,13,13,0.85); backdrop-filter:blur(8px); z-index:99; }
 
-    #section-indicator { position:fixed; top:22px; right:28px; display:flex; gap:8px; z-index:100; }
+    #section-indicator { position:fixed; top:22px; right:28px; display:flex; gap:8px; z-index:100; align-items:center; }
     .pill { font-size:10px; font-weight:700; letter-spacing:2px; padding:4px 11px; border-radius:18px; border:1px solid transparent; color:var(--text-muted); transition:all .3s; cursor:pointer; }
     .pill:hover { opacity:.8; }
     .pill.why-p  { border-color:rgba(134,188,37,.18); }
@@ -324,6 +324,31 @@
     .pill.why-p.on  { background:rgba(134,188,37,.13); color:var(--why);  border-color:rgba(134,188,37,.45); }
     .pill.how-p.on  { background:rgba(0,180,216,.1);  color:var(--how);  border-color:rgba(0,180,216,.45); }
     .pill.what-p.on { background:rgba(199,125,255,.09);color:var(--what); border-color:rgba(199,125,255,.45); }
+
+    /* ── TWO PATHS ── */
+    .tp-row { display:flex; gap:0; align-items:stretch; width:100%; max-width:1060px; margin-top:26px; }
+    .tp-card { flex:1; background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:26px 28px; display:flex; flex-direction:column; gap:10px; position:relative; overflow:hidden; }
+    .tp-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+    .tp-card-how::before   { background:var(--how); }
+    .tp-card-green::before { background:var(--green); }
+    .tp-icon  { font-size:28px; }
+    .tp-title { font-size:18px; font-weight:800; }
+    .tp-body  { font-size:14px; color:var(--text-dim); line-height:1.6; }
+    .tp-items { list-style:none; display:flex; flex-direction:column; gap:7px; margin-top:4px; flex:1; }
+    .tp-items li { font-size:13.5px; color:var(--text-dim); display:flex; align-items:flex-start; gap:8px; line-height:1.5; }
+    .tp-bullet { flex-shrink:0; margin-top:1px; font-size:11px; }
+    .tp-accel-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
+    .tp-next-tag { align-self:flex-start; margin-top:auto; padding-top:14px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:6px 16px; border-radius:20px; border:1px solid rgba(199,125,255,.4); color:var(--what); background:rgba(199,125,255,.08); cursor:default; }
+    .tp-divider { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 20px; }
+    .tp-divider::before, .tp-divider::after { content:''; flex:1; width:1px; background:var(--border); }
+    .tp-or { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); padding:10px 0; }
+
+    /* ── LANG TOGGLE ── */
+    .lang-sep { width:1px; height:16px; background:var(--border); margin:0 4px; }
+    .lang-toggle { display:flex; gap:2px; background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:18px; padding:2px; }
+    .lang-btn { font-size:10px; font-weight:700; letter-spacing:1.5px; padding:3px 10px; border-radius:14px; border:none; background:none; color:var(--text-muted); cursor:pointer; transition:all .2s; font-family:inherit; }
+    .lang-btn:hover { color:var(--text); }
+    .lang-btn.active-lang { background:var(--bg3); color:var(--green); border:1px solid rgba(134,188,37,.35); }
   </style>
 </head>
 <body>
@@ -333,18 +358,22 @@
   <div class="login-glow"></div>
   <div class="login-box">
     <div class="login-logo">Deloitte Technology</div>
-    <div class="login-title">Acesso Restrito</div>
-    <div class="login-sub">Introduza as suas credenciais para continuar.</div>
+    <div class="login-title" id="login-title">Acesso Restrito</div>
+    <div class="login-sub" id="login-sub">Introduza as suas credenciais para continuar.</div>
     <div class="login-field">
-      <label>Utilizador</label>
+      <label id="login-user-label">Utilizador</label>
       <input type="text" id="login-user" autocomplete="username" placeholder="utilizador" />
     </div>
     <div class="login-field">
-      <label>Password</label>
+      <label id="login-pass-label">Password</label>
       <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••" />
     </div>
-    <button class="login-btn" onclick="doLogin()">Entrar</button>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">Entrar</button>
     <div class="login-error" id="login-error"></div>
+    <div class="lang-toggle" style="margin-top:18px;">
+      <button class="lang-btn active-lang" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
   <div class="login-footer-note">Copyright 2026 Technology S.A. All rights reserved.</div>
 </div>
@@ -354,6 +383,11 @@
   <span class="pill why-p" onclick="goToSection('why')">WHY</span>
   <span class="pill how-p" onclick="goToSection('how')">HOW</span>
   <span class="pill what-p" onclick="goToSection('what')">WHAT</span>
+  <div class="lang-sep"></div>
+  <div class="lang-toggle">
+    <button class="lang-btn active-lang" data-lang="pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
 </div>
 <div id="deck"></div>
 <div id="footer">Copyright 2026 Technology S.A. All rights reserved.</div>
@@ -381,12 +415,23 @@ function doLogin() {
     ui.classList.remove('error');
     pi.classList.remove('error');
   } else {
-    err.textContent = 'Credenciais inválidas. Tente novamente.';
+    err.textContent = UI_STRINGS[currentLang].loginError;
     ui.classList.add('error');
     pi.classList.add('error');
     pi.value = '';
     pi.focus();
   }
+}
+
+function updateLoginLang() {
+  const s = UI_STRINGS[currentLang];
+  document.getElementById('login-title').textContent     = s.loginTitle;
+  document.getElementById('login-sub').textContent       = s.loginSub;
+  document.getElementById('login-user-label').textContent = s.loginUserLabel;
+  document.getElementById('login-user').placeholder      = s.loginUserPlaceholder;
+  document.getElementById('login-pass-label').textContent = s.loginPassLabel;
+  document.getElementById('login-btn').textContent       = s.loginBtn;
+  document.getElementById('login-error').textContent     = '';
 }
 
 // Allow Enter key to submit
@@ -508,7 +553,7 @@ const render = {
       </div>
       <div class="cc-bottom">
         <div class="card-consequence">
-          <div class="consequence-label">Consequência</div>
+          <div class="consequence-label">${UI_STRINGS[currentLang].consequenceLabel}</div>
           ${c3.icon ? `<div class="card-icon">${c3.icon}</div>` : ''}
           <div class="card-title">${c3.title}</div>
           <div class="card-body">${c3.body}</div>
@@ -518,7 +563,7 @@ const render = {
 
   'vibe-coding'(d) {
     return `
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">${UI_STRINGS[currentLang].reviewWatermark}</span></div>
       ${tag(d.section)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="vc-wrap">
@@ -621,7 +666,7 @@ const render = {
       <div class="subheadline">${d.subheadline}</div>
       <div class="tco-wrap">
         <table class="tco-table">
-          <thead><tr><th>Componente</th>${headCells}</tr></thead>
+          <thead><tr><th>${UI_STRINGS[currentLang].tcoComponentLabel}</th>${headCells}</tr></thead>
           <tbody>${rows}${totalRow}</tbody>
         </table>
       </div>
@@ -641,7 +686,7 @@ const render = {
         <div class="proto-sub">${f.sub}</div>
       </div>`).join('');
     return `
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">${UI_STRINGS[currentLang].reviewWatermark}</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
@@ -657,13 +702,13 @@ const render = {
         <td><span class="badge badge-${e.phase}">${e.phase === 'poc' ? 'POC' : e.phase === 'tobe' ? 'TO BE' : e.phase === 'mvp' ? 'MVP' : 'Full'}</span></td>
       </tr>`).join('');
     return `
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">${UI_STRINGS[currentLang].reviewWatermark}</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
       <div class="epic-wrap">
         <table class="epic-table">
-          <thead><tr><th>Épico</th><th>Descrição</th><th>Fase</th></tr></thead>
+          <thead><tr><th>${UI_STRINGS[currentLang].epicEpicLabel}</th><th>${UI_STRINGS[currentLang].epicDescLabel}</th><th>${UI_STRINGS[currentLang].epicPhaseLabel}</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
@@ -680,7 +725,7 @@ const render = {
         </div>
       </div>`).join('');
     return `
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">${UI_STRINGS[currentLang].reviewWatermark}</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
@@ -692,6 +737,34 @@ const render = {
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
         <div style="font-size:clamp(5rem,14vw,13rem);font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1;user-select:none;">
           ${d.name}<span style="color:var(--green);">.</span>
+        </div>
+      </div>`;
+  },
+
+  'two-paths'(d) {
+    function itemsHtml(items, colorVar) {
+      return items.map(i=>`<li><span class="tp-bullet" style="color:${colorVar}">▸</span>${i}</li>`).join('');
+    }
+    const p1 = d.path1, p2 = d.path2;
+    return `
+      ${tag(null)}
+      <div class="headline">${parseAccent(d.headline)}</div>
+      <div class="subheadline">${d.subheadline}</div>
+      <div class="tp-row">
+        <div class="tp-card tp-card-how">
+          <div class="tp-icon">${p1.icon}</div>
+          <div class="tp-title" style="color:var(--how)">${p1.title}</div>
+          <div class="tp-body">${p1.body}</div>
+          <ul class="tp-items">${itemsHtml(p1.items, 'var(--how)')}</ul>
+          ${p1.tag ? `<div class="tp-next-tag">${p1.tag.text}</div>` : ''}
+        </div>
+        <div class="tp-divider"><div class="tp-or">${d.orLabel}</div></div>
+        <div class="tp-card tp-card-green">
+          <div class="tp-icon">${p2.icon}</div>
+          <div class="tp-title" style="color:var(--green)">${p2.title}</div>
+          <div class="tp-body">${p2.body}</div>
+          <div class="tp-accel-label">${p2.accel.label}</div>
+          <ul class="tp-items">${itemsHtml(p2.accel.items, 'var(--green)')}</ul>
         </div>
       </div>`;
   },
@@ -711,40 +784,58 @@ const render = {
   }
 };
 
-// ── BUILD DECK ───────────────────────────────────────────
+// ── LANGUAGE & DECK ──────────────────────────────────────
 const deck = document.getElementById('deck');
 const pills = document.querySelectorAll('#section-indicator .pill');
-
-SLIDES.filter(s => !s.hidden).forEach((slide, i) => {
-  const el = document.createElement('div');
-  el.className = 'slide' + (i === 0 ? ' active' : '');
-  el.dataset.section = slide.section || '';
-
-  // inject section tag into section-aware renderers
-  const raw = render[slide.type] ? render[slide.type](slide.data) : '<p>Tipo de slide desconhecido</p>';
-
-  // add section tag automatically for section slides
-  if (slide.section && !raw.includes('section-tag')) {
-    el.innerHTML = `<div class="section-tag tag-${slide.section}">${slide.section.toUpperCase()}</div>` + raw;
-  } else {
-    el.innerHTML = raw;
-  }
-  deck.appendChild(el);
-});
-
-// ── NAVIGATION ───────────────────────────────────────────
-const allSlides = document.querySelectorAll('.slide');
-const total = allSlides.length;
+let currentLang = 'pt';
 let current = 0, animating = false;
 
+function allSlides() { return document.querySelectorAll('.slide'); }
+
+function buildDeck(keepIndex) {
+  const prevIndex = keepIndex ? current : 0;
+  deck.innerHTML = '';
+  const slides = (currentLang === 'pt' ? SLIDES : SLIDES_EN).filter(s => !s.hidden);
+  slides.forEach((slide, i) => {
+    const el = document.createElement('div');
+    el.className = 'slide';
+    el.dataset.section = slide.section || '';
+    const raw = render[slide.type]
+      ? render[slide.type](slide.data)
+      : `<p>${UI_STRINGS[currentLang].unknownSlide}</p>`;
+    if (slide.section && !raw.includes('section-tag')) {
+      el.innerHTML = `<div class="section-tag tag-${slide.section}">${slide.section.toUpperCase()}</div>` + raw;
+    } else {
+      el.innerHTML = raw;
+    }
+    deck.appendChild(el);
+  });
+  current = Math.min(prevIndex, allSlides().length - 1);
+  allSlides()[current].classList.add('active');
+  updateUI();
+}
+
+function setLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  buildDeck(true);
+  updateLoginLang();
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active-lang', b.dataset.lang === lang);
+  });
+}
+
+// ── NAVIGATION ───────────────────────────────────────────
 function updateUI() {
+  const slides = allSlides();
+  const total = slides.length;
   document.getElementById('progress').style.width = ((current+1)/total*100)+'%';
   document.getElementById('slide-counter').textContent = (current+1)+' / '+total;
   document.getElementById('prev-btn').disabled = current === 0;
   document.getElementById('next-btn').disabled = current === total-1;
 
   pills.forEach(p => p.classList.remove('on'));
-  const sec = allSlides[current].dataset.section;
+  const sec = slides[current].dataset.section;
   if (sec) {
     const p = document.querySelector(`.pill.${sec}-p`);
     if (p) p.classList.add('on');
@@ -752,7 +843,7 @@ function updateUI() {
 }
 
 function goToSection(section) {
-  const idx = Array.from(allSlides).findIndex(s => s.dataset.section === section);
+  const idx = Array.from(allSlides()).findIndex(s => s.dataset.section === section);
   if (idx === -1 || idx === current) return;
   goToIndex(idx);
 }
@@ -760,9 +851,10 @@ function goToSection(section) {
 function goToIndex(idx) {
   if (animating || idx === current) return;
   animating = true;
+  const slides = allSlides();
   const dir = idx > current ? 1 : -1;
-  const cur = allSlides[current];
-  const nxt = allSlides[idx];
+  const cur = slides[current];
+  const nxt = slides[idx];
 
   cur.classList.remove('active');
   cur.classList.add('exit');
@@ -778,17 +870,18 @@ function goToIndex(idx) {
 
 function navigate(dir) {
   if (animating) return;
+  const slides = allSlides();
   const next = current + dir;
-  if (next < 0 || next >= total) return;
+  if (next < 0 || next >= slides.length) return;
   animating = true;
 
-  const cur = allSlides[current];
-  const nxt = allSlides[next];
+  const cur = slides[current];
+  const nxt = slides[next];
 
   cur.classList.remove('active');
   cur.classList.add('exit');
   nxt.style.transform = `translateX(${dir > 0 ? 60 : -60}px)`;
-  nxt.offsetHeight; // reflow
+  nxt.offsetHeight;
   nxt.style.transform = '';
   nxt.classList.add('active');
 
@@ -809,7 +902,7 @@ document.addEventListener('touchend',   e => {
   if (Math.abs(d) > 50) navigate(d > 0 ? 1 : -1);
 });
 
-updateUI();
+buildDeck();
 </script>
 </body>
 </html>

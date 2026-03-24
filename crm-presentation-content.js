@@ -260,7 +260,46 @@ const SLIDES = [
   },
 
   /* ══════════════════════════════════════════════════
-     SLIDE 8 — HOW: TCO
+     SLIDE 8 — HOW: DUAS ABORDAGENS
+  ══════════════════════════════════════════════════ */
+  {
+    type: 'two-paths',
+    section: 'how',
+    data: {
+      headline: 'Abordagens para o desenvolvimento de <accent-how>CRM à medida</accent-how>',
+      subheadline: 'O desenvolvimento agentic é aplicável em dois cenários: construção de raiz para máxima adequação funcional, ou migração tecnológica a partir de uma plataforma existente.',
+      orLabel: 'ou',
+      path1: {
+        icon: '⚙️',
+        title: 'Desenvolvimento de Raiz',
+        body: 'Construção integral de uma solução CRM desenhada de raiz para os processos e necessidades específicas da organização.',
+        items: [
+          'Máxima flexibilidade funcional e técnica',
+          'Solução sem legado nem limitações de plataforma',
+          'Modelo de dados e experiência de utilizador desenhados para o negócio'
+        ],
+        tag: { text: 'VER DETALHE NA SECÇÃO SEGUINTE' }
+      },
+      path2: {
+        icon: '🔄',
+        title: 'Migração Tecnológica',
+        body: 'Transição a partir de um CRM existente (Salesforce, Dynamics 365) para uma solução proprietária, preservando dados e continuidade operacional.',
+        accel: {
+          label: 'Processos de aceleração da migração:',
+          items: [
+            'Extração e mapeamento do modelo de dados existente',
+            'Migração de histórico de clientes e interações',
+            'Replicação e validação de fluxos de negócio críticos',
+            'Operação em paralelo para garantia de continuidade',
+            'Formação e gestão da mudança'
+          ]
+        }
+      }
+    }
+  },
+
+  /* ══════════════════════════════════════════════════
+     SLIDE 9 — HOW: TCO
   ══════════════════════════════════════════════════ */
   {
     hidden: true,
@@ -555,3 +594,587 @@ const SLIDES = [
   }
 
 ]; // fim de SLIDES
+
+/* ══════════════════════════════════════════════════
+   UI STRINGS — interface labels translated per language
+══════════════════════════════════════════════════ */
+const UI_STRINGS = {
+  pt: {
+    consequenceLabel: 'Consequência',
+    tcoComponentLabel: 'Componente',
+    epicEpicLabel: 'Épico',
+    epicDescLabel: 'Descrição',
+    epicPhaseLabel: 'Fase',
+    reviewWatermark: 'REVER',
+    unknownSlide: 'Tipo de slide desconhecido',
+    loginTitle: 'Acesso Restrito',
+    loginSub: 'Introduza as suas credenciais para continuar.',
+    loginUserLabel: 'Utilizador',
+    loginUserPlaceholder: 'utilizador',
+    loginPassLabel: 'Password',
+    loginBtn: 'Entrar',
+    loginError: 'Credenciais inválidas. Tente novamente.'
+  },
+  en: {
+    consequenceLabel: 'Consequence',
+    tcoComponentLabel: 'Component',
+    epicEpicLabel: 'Epic',
+    epicDescLabel: 'Description',
+    epicPhaseLabel: 'Phase',
+    reviewWatermark: 'REVIEW',
+    unknownSlide: 'Unknown slide type',
+    loginTitle: 'Restricted Access',
+    loginSub: 'Enter your credentials to continue.',
+    loginUserLabel: 'Username',
+    loginUserPlaceholder: 'username',
+    loginPassLabel: 'Password',
+    loginBtn: 'Sign in',
+    loginError: 'Invalid credentials. Please try again.'
+  }
+};
+
+/* ══════════════════════════════════════════════════
+   SLIDES_EN — English version of the presentation
+══════════════════════════════════════════════════ */
+const SLIDES_EN = [
+
+  /* ── SLIDE 1 — COVER ── */
+  {
+    type: 'cover',
+    section: null,
+    data: {
+      logo: 'Deloitte Technology',
+      titleAccent: 'Agentic-Built',
+      titleLine1: 'CRM',
+      titleLine2: 'The New Paradigm',
+      subtitle: 'From SaaS package acquisition to accelerated development powered by Agentic AI',
+      tags: []
+    }
+  },
+
+  /* ── SLIDE 2 — WHY: INFLECTION POINT ── */
+  {
+    type: 'stats',
+    section: 'why',
+    data: {
+      headline: 'We are at an <accent>inflection point</accent>',
+      subheadline: 'The emergence of AI, and its rapid growth, makes custom CRM development viable and able to compete, on equal terms, with acquiring a SaaS solution — in cost, delivery time and operational viability.',
+      stats: [
+        {
+          num: 'Up to 2×',
+          color: 'green',
+          label: 'Increase in time-to-market through the use of AI-based agentic development tools'
+        },
+        {
+          num: 'Lower TCO',
+          color: 'how',
+          label: 'Cost reduction compared to a traditional implementation with the same functional scope'
+        },
+        {
+          num: '100%',
+          color: 'what',
+          label: 'Solution alignment to the business, without concessions due to generic platform features'
+        }
+      ],
+      callout: 'Dependence on external platforms, with rising licence costs, constrained roadmaps, and difficult functional fit, <strong>opens the door to different options.</strong>'
+    }
+  },
+
+  /* ── SLIDE 3 — WHY: THE HISTORICAL PARADIGM ── */
+  {
+    type: 'two-col',
+    section: 'why',
+    data: {
+      headline: 'The <accent>current paradigm</accent> of CRM development',
+      subheadline: 'The acquisition of CRM packages has been the dominant trend, particularly in a context prior to the technological sophistication now seen with new AI tools.',
+      col1: {
+        icon: '📦',
+        title: 'Factors driving package adoption',
+        color: 'muted',
+        items: [
+          'High perceived complexity in custom development models',
+          'Long time-to-market for truly customised solutions',
+          'High failure rate in greenfield development projects',
+          'Platforms such as Salesforce and Dynamics offer mature, feature-rich ecosystems'
+        ]
+      },
+      col2: {
+        icon: '⚠',
+        title: 'Challenges associated with their adoption',
+        color: 'muted',
+        items: [
+          'Business processes typically forced to adapt to the software, not the other way around',
+          'Per-user licensing model whose costs scale significantly',
+          'Unused base platform components, and a high volume of customisations',
+          'Dependence on the vendor roadmap for strategically important evolutions'
+        ]
+      },
+      callout: 'New development paradigms directly address these challenges, minimising the concessions required when adopting a package.'
+    }
+  },
+
+  /* ── SLIDE 4 — WHY: WHAT CHANGED ── */
+  {
+    type: 'cards-consequence',
+    section: 'why',
+    data: {
+      headline: 'The factors that <accent>change the equation</accent>',
+      subheadline: 'Models from vendors such as Claude Code and Gemini have reached a level of maturity that allows them to generate, review and evolve code efficiently and consistently, serving as significant accelerators for human teams.',
+      accent: 'green',
+      cards: [
+        {
+          icon: '',
+          title: 'Next-Generation Language Models',
+          body: 'Models such as Claude Sonnet and Gemini 2.5 Pro understand functional requirements and significantly accelerate the design, development and testing process.'
+        },
+        {
+          icon: '',
+          title: 'Agentic Development Tools',
+          body: 'Tools such as <strong style="color:var(--green)">Claude Code</strong> go beyond "autocomplete": they execute multi-step tasks autonomously, iterating over production code with auditable results.'
+        },
+        {
+          icon: '',
+          title: 'New Software Development Paradigm',
+          body: 'With a greater focus on planning and functional scope, it will be increasingly faster to implement and evolve software, which significantly reduces the competitive advantage of SaaS vendors.'
+        }
+      ]
+    }
+  },
+
+  /* ── SLIDE 5 — WHY: AGENTIC DEVELOPMENT ── */
+  {
+    type: 'agent-diagram',
+    section: 'why',
+    data: {
+      headline: 'The <accent>Agentic development (1/2)</accent>',
+      subheadline: 'More than a co-pilot providing suggestions, this is an orchestrated system of autonomous agents that plans, implements, tests and iterates. It is combined with human oversight to ensure quality, delivery of high-value activities and alignment with business objectives.',
+      orchestrator: {
+        label: 'Orchestrator',
+        name: '🤖 Claude Code / Main Agent'
+      },
+      agents: [
+        { label: 'Specialist', name: '🗄 Database Agent',      color: 'green' },
+        { label: 'Specialist', name: '🎨 Frontend Agent',      color: 'how'   },
+        { label: 'Specialist', name: '⚙️ Backend Agent',       color: 'what'  },
+        { label: 'Specialist', name: '📋 Documentation Agent', color: 'yellow'}
+      ],
+      callout: 'The human developer defines the functional and architectural context, validates critical decisions and delegates the execution of solution components to the agents. The productivity of development processes and their subsequent evolution increases significantly.'
+    }
+  },
+
+  /* ── SLIDE 6 — WHY: AGENTIC DEVELOPMENT 2/2 ── */
+  {
+    type: 'vibe-coding',
+    section: 'why',
+    data: {
+      headline: 'The <accent>Agentic development (2/2)</accent>',
+      quote: {
+        text: 'You just see things, say things, run things, and copy-paste things — and it mostly works.',
+        author: 'Andrej Karpathy, February 2025'
+      },
+      maturityLabel: 'Maturity Assessment',
+      strong: {
+        label: 'Strengths:',
+        items: ['CRUD applications and forms', 'Prototyping and MVPs', 'UI scaffolding', 'Boilerplate reduction']
+      },
+      weak: {
+        label: 'Areas of Concern:',
+        items: ['Complex business logic', 'Security hardening', 'Performance at scale', 'Long-term maintainability']
+      }
+    }
+  },
+
+  /* ── SLIDE 7 — HOW: DEVELOPMENT CYCLES ── */
+  {
+    type: 'cycle',
+    section: 'how',
+    data: {
+      headline: 'Execution model for an <accent-how>Agentic development project</accent-how>',
+      subheadline: 'In the new paradigm, creating short, iterative cycles becomes increasingly important, with emphasis on functional and technical planning, where the context provided to agents is the main quality factor for the output.',
+      steps: [
+        {
+          num: '1',
+          title: 'Functional Planning',
+          body: 'Definition of epics, user stories and detailed acceptance criteria, where the depth of context directly determines the quality of the agents\' output.'
+        },
+        {
+          num: '2',
+          title: 'Architecture & Technical Decisions',
+          body: 'Definition and iteration on architecture and technology stack, data model design and design patterns — taking into account best practices, benchmarks and contextual fit.'
+        },
+        {
+          num: '3',
+          title: 'Agentic Execution',
+          body: 'The development team is extended through agents, which implement and perform unit tests on features, iterating until the expected result is achieved.'
+        },
+        {
+          num: '4',
+          title: 'Human Technical Review',
+          body: 'The developer complements the developments and validates the result, refining where necessary or initiating a new agent iteration cycle.'
+        },
+        {
+          num: '5',
+          title: 'Deploy & Feedback Loop',
+          body: 'The cycle closes with business feedback and test case execution, giving rise to the planning of the next sprint.'
+        }
+      ],
+      callout: ''
+    }
+  },
+
+  /* ── SLIDE 8 — HOW: THREE PILLARS ── */
+  {
+    type: 'pillars',
+    section: 'how',
+    data: {
+      headline: 'We believe in our <accent-how>differentiation</accent-how>, as a result of three main factors',
+      subheadline: 'AI tools are a necessary but not sufficient condition for agent-based development. The other two pillars are decisive for transforming technological potential into tangible value for the client.',
+      pillars: [
+        {
+          colorClass: 'p1',
+          num: '1',
+          icon: '🧠',
+          title: 'LLM Model Capabilities',
+          body: 'State-of-the-art models capable of generating, reviewing and refactoring production code autonomously and consistently.',
+          tag: 'Tools'
+        },
+        {
+          colorClass: 'p2',
+          num: '2',
+          icon: '⚙️',
+          title: 'Usage Experience',
+          body: 'Mastery of these tools, through prompt engineering, context management and agent supervision, is a differentiating competence we develop within our teams.',
+          tag: 'Technical Proficiency'
+        },
+        {
+          colorClass: 'p3',
+          num: '3',
+          icon: '🏦',
+          title: 'Industry Functional Knowledge',
+          body: 'We apply our industry knowledge, and extensive experience in CRM implementation, to create solutions tailored to the business context.',
+          tag: 'Business Knowledge'
+        }
+      ],
+      equalsText: ''
+    }
+  },
+
+  /* ── SLIDE 8b — HOW: TWO APPROACHES ── */
+  {
+    type: 'two-paths',
+    section: 'how',
+    data: {
+      headline: 'Two approaches to an <accent-how>Agentic custom CRM</accent-how>',
+      subheadline: 'Agentic development applies to two distinct scenarios: greenfield build for maximum functional fit, or technology migration from an existing platform.',
+      orLabel: 'or',
+      path1: {
+        icon: '⚙️',
+        title: 'Greenfield Development',
+        body: 'Full build of a CRM solution designed from scratch for the organisation\'s specific processes and requirements.',
+        items: [
+          'Maximum functional and technical flexibility',
+          'No legacy constraints or platform limitations',
+          'Data model and user experience designed for the business'
+        ],
+        tag: { text: 'SEE DETAIL IN THE NEXT SECTION' }
+      },
+      path2: {
+        icon: '🔄',
+        title: 'Technology Migration',
+        body: 'Transition from an existing CRM (Salesforce, Dynamics 365) to a proprietary solution, preserving data and operational continuity.',
+        accel: {
+          label: 'Migration acceleration processes:',
+          items: [
+            'Extraction and mapping of the existing data model',
+            'Migration of client history and interactions',
+            'Replication and validation of critical business flows',
+            'Parallel operation for continuity assurance',
+            'Training and change management'
+          ]
+        }
+      }
+    }
+  },
+
+  /* ── SLIDE 9 — HOW: TCO ── */
+  {
+    hidden: true,
+    type: 'tco',
+    section: 'how',
+    data: {
+      headline: 'TCO Analysis — <accent-how>5-Year Horizon</accent-how>',
+      subheadline: 'Illustrative comparison for a mid-sized organisation with 50 CRM users. Values in euros.',
+      columns: [
+        { label: 'Custom CRM',   sublabel: 'Agentic Development',    class: 'col-custom' },
+        { label: 'Salesforce',   sublabel: 'Sales Cloud Enterprise',  class: 'col-sf'     },
+        { label: 'Dynamics 365', sublabel: 'Sales Premium',           class: 'col-dyn'    }
+      ],
+      rows: [
+        {
+          label: 'Licences / Subscription (5 years)',
+          values: ['€ 0', '€ 540 000', '€ 390 000'],
+          highlight: true
+        },
+        {
+          label: 'Initial implementation',
+          values: ['€ 180 000', '€ 320 000', '€ 250 000']
+        },
+        {
+          label: 'Customisations over 5 years',
+          values: ['€ 80 000', '€ 220 000', '€ 170 000']
+        },
+        {
+          label: 'Infrastructure / Cloud (5 years)',
+          values: ['€ 60 000', '€ 0 (included)', '€ 0 (included)']
+        },
+        {
+          label: 'Maintenance and continuous evolution (5 years)',
+          values: ['€ 120 000', '€ 180 000', '€ 160 000']
+        },
+        {
+          label: 'Legacy system integrations',
+          values: ['€ 40 000', '€ 120 000', '€ 100 000']
+        }
+      ],
+      total: {
+        label: 'Total TCO — 5 Years',
+        values: ['€ 480 000', '€ 1 380 000', '€ 1 070 000']
+      },
+      note: '⚠ Illustrative values, based on publicly available market benchmarks. Business case analysis should be calibrated to the specific context of each organisation. Salesforce: ~€ 9,000/user/year. Dynamics 365: ~€ 6,500/user/year. Agentic development reduces estimated implementation costs by 60 to 70%.'
+    }
+  },
+
+  /* ── SLIDE 10 — HOW: ADDITIONAL STRATEGIC VALUE ── */
+  {
+    hidden: true,
+    type: 'cards',
+    section: 'how',
+    data: {
+      headline: 'Beyond <accent-how>direct cost</accent-how>',
+      subheadline: 'TCO analysis does not capture the full value. A custom solution generates strategic benefits that a third-party package can hardly replicate.',
+      accent: 'how',
+      cards: [
+        {
+          icon: '🔒',
+          title: 'Data Sovereignty and Governance',
+          body: 'Customer data resides on the organisation\'s own infrastructure. Dependence on third-party data centres is eliminated, with a direct impact on regulatory compliance and GDPR.'
+        },
+        {
+          icon: '🚀',
+          title: 'Evolution Agility',
+          body: 'Any new feature can be developed and delivered in days. There is no external roadmap to wait for, nor additional modules to acquire for each new business need.'
+        },
+        {
+          icon: '🧩',
+          title: 'Native Ecosystem Integration',
+          body: 'The solution adapts to the existing technology ecosystem — not the other way around. Deep integrations with legacy systems without expensive proprietary connectors.'
+        },
+        {
+          icon: '📈',
+          title: 'Full Business Alignment',
+          body: 'Processes designed from scratch for the client, without concessions imposed by the vendor\'s product logic. A user experience designed for the organisation\'s real employees.'
+        }
+      ]
+    }
+  },
+
+  /* ── SLIDE 11 — WHAT: FUNCTIONAL CONTEXT ── */
+  {
+    hidden: false,
+    type: 'epic-table',
+    section: 'what',
+    data: {
+      headline: '<accent-what>Agentic CRM by Deloitte</accent-what> - Functional context',
+      subheadline: 'Mapping of the functional epics identified for a CRM in the insurance sector.',
+      epics: [
+        {
+          name: 'Dashboard & KPIs',
+          desc: 'Operational performance indicators, renewals in pipeline and business alerts in real time',
+          scope: 'Real-time KPIs, pipeline charts',
+          phase: 'poc'
+        },
+        {
+          name: 'Client 360°',
+          desc: 'Unified client view: policies, leads, cases, interactions, communication preferences and timeline',
+          scope: '7 user stories delivered',
+          phase: 'poc'
+        },
+        {
+          name: 'Policy Management',
+          desc: 'Full policy lifecycle, association to clients and change history recording',
+          scope: '4 user stories delivered',
+          phase: 'poc'
+        },
+        {
+          name: 'Renewals',
+          desc: 'Upcoming renewals pipeline, automated renewal lead creation and proactive notifications',
+          scope: '4 user stories delivered',
+          phase: 'poc'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        },
+        {
+          name: 'Lorem ipsum dolor',
+          desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+          scope: '',
+          phase: 'tobe'
+        }
+      ]
+    }
+  },
+
+  /* ── SLIDE 12 — WHAT: PROTOTYPE ── */
+  {
+    type: 'prototype',
+    section: 'what',
+    data: {
+      headline: '<accent-what>Prototype</accent-what>',
+      subheadline: 'Insurance CRM — built from scratch with Agentic Development.',
+      note: 'Replace with real screenshots. Link to jump to the application.',
+      frames: [
+        {
+          icon: '📊',
+          label: 'Dashboard & KPIs',
+          sub: 'Real-time operational metrics, renewals pipeline'
+        },
+        {
+          icon: '👤',
+          label: 'Client 360°',
+          sub: 'Unified view: policies, leads, cases, history, preferences'
+        },
+        {
+          icon: '🔄',
+          label: 'Renewals Pipeline',
+          sub: 'Automatic alerts, renewal lead creation'
+        },
+        {
+          icon: '🔔',
+          label: 'Notifications & Interactions',
+          sub: 'Notification centre and interaction log per client'
+        }
+      ]
+    }
+  },
+
+  /* ── SLIDE 13 — WHAT: ROADMAP ── */
+  {
+    type: 'roadmap',
+    section: 'what',
+    data: {
+      headline: 'Development <accent-what>Roadmap</accent-what>',
+      subheadline: 'Illustrative roadmap for iterative CRM delivery, from POC to final product.',
+      phases: [
+        {
+          dotClass: 'g',
+          duration: '4 – 6 Weeks',
+          title: 'Proof of Concept',
+          titleColor: 'green',
+          items: [
+            'Dashboard and operational KPIs',
+            'Client 360° (7 functional views)',
+            'Policy Management',
+            'Renewals Pipeline',
+            'Notification System',
+            'Simulated authentication and demo data'
+          ]
+        },
+        {
+          dotClass: 'b',
+          duration: '+ 8 – 10 Weeks',
+          title: 'MVP',
+          titleColor: 'how',
+          items: [
+            'Leads Pipeline (table and kanban)',
+            'Case Management',
+            'Document Upload',
+            'Azure AD and access profiles',
+            'Audit log',
+            'Database migrations'
+          ]
+        },
+        {
+          dotClass: 'p',
+          duration: '+ 10 – 14 Weeks',
+          title: 'Product',
+          titleColor: 'what',
+          items: [
+            'Reports and Export',
+            'Insurer integrations',
+            'Mobile-responsive experience',
+            'Performance and scalability optimisation',
+            'Go-live and follow-up',
+            'Continuous business-driven evolution'
+          ]
+        }
+      ],
+      callout: 'With Agentic Development, each phase is completed <strong>2 to 3 times faster</strong> than with a traditional methodology — maintaining code quality and architectural integrity.'
+    }
+  },
+
+  /* ── SLIDE 14 — CLOSING ── */
+  {
+    hidden: true,
+    type: 'closing',
+    section: null,
+    data: {
+      titleLine1: 'The next',
+      titleLine2: 'step',
+      items: [
+        {
+          num: '1',
+          text: '<strong>Validate the business case</strong> with the organisation\'s real data — users, critical processes, current total cost of ownership.'
+        },
+        {
+          num: '2',
+          text: '<strong>Define the Proof of Concept scope</strong> — 4 to 6 weeks to put a working solution in the hands of users.'
+        },
+        {
+          num: '3',
+          text: '<strong>Align the functional context</strong> — identify the highest-impact epics and stories for the business to prioritise in the first phase.'
+        },
+        {
+          num: '4',
+          text: '<strong>Start the project</strong> — with a focused team, short cycles and Agentic Development multiplying productivity from day one.'
+        }
+      ]
+    }
+  },
+
+  /* ── FINAL SLIDE — LOGO ── */
+  {
+    type: 'logo-end',
+    section: null,
+    data: {
+      name: 'Deloitte'
+    }
+  }
+
+]; // end of SLIDES_EN
