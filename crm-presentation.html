@@ -80,6 +80,19 @@
     .card-title { font-size:16px; font-weight:700; margin-bottom:8px; }
     .card-body  { font-size:14px; color:var(--text-dim); line-height:1.65; }
 
+    /* ── CARDS CONSEQUENCE ── */
+    .cc-top { display:flex; gap:18px; width:100%; max-width:860px; margin-top:28px; }
+    .cc-connectors { display:flex; justify-content:center; align-items:flex-start; width:100%; max-width:860px; height:48px; position:relative; }
+    .cc-connectors svg { position:absolute; top:0; left:0; width:100%; height:100%; overflow:visible; }
+    .cc-bottom { width:100%; max-width:860px; }
+    .card-consequence {
+      background:linear-gradient(135deg,rgba(134,188,37,.09),rgba(134,188,37,.03));
+      border:1px solid rgba(134,188,37,.4); border-radius:14px; padding:24px 28px;
+      position:relative; overflow:hidden; text-align:center;
+    }
+    .card-consequence::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:var(--green); }
+    .consequence-label { font-size:9px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+
     /* ── TWO-COL ── */
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; width:100%; max-width:1060px; margin-top:28px; }
     .col-block { background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:24px; }
@@ -133,19 +146,47 @@
 
     /* ── PILLARS ── */
     .pillars-row { display:flex; gap:0; max-width:1050px; width:100%; margin-top:28px; align-items:stretch; }
-    .pillar { flex:1; background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:24px 20px; text-align:center; position:relative; overflow:hidden; }
+    .pillar { flex:1; background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:24px 20px; text-align:center; position:relative; overflow:hidden; display:flex; flex-direction:column; }
     .pillar::after { content:''; position:absolute; bottom:0;left:0;right:0; height:3px; }
     .p1::after { background:linear-gradient(90deg,#f7c59f,#ef8c5b); }
     .p2::after { background:linear-gradient(90deg,var(--green),var(--green-dim,#6a9a1e)); }
     .p3::after { background:linear-gradient(90deg,var(--how),#0077b6); }
     .pillar-bg-num { font-size:42px; font-weight:900; opacity:.07; position:absolute; top:10px;right:14px; line-height:1; }
     .pillar-icon  { font-size:28px; margin-bottom:12px; }
-    .pillar-title { font-size:14px; font-weight:800; margin-bottom:9px; }
-    .pillar-body  { font-size:12px; color:var(--text-dim); line-height:1.6; }
-    .pillar-tag   { display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-top:12px; padding:3px 10px; border-radius:10px; background:rgba(255,255,255,.06); color:var(--text-muted); }
+    .pillar-title { font-size:17px; font-weight:800; margin-bottom:9px; }
+    .pillar-body  { font-size:15px; color:var(--text-dim); line-height:1.6; }
+    .pillar-tag   { display:inline-block; font-size:9.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-top:auto; padding-top:12px; padding-left:10px; padding-right:10px; padding-bottom:3px; border-radius:10px; background:rgba(255,255,255,.06); color:var(--text-muted); align-self:center; }
     .plus-sign { font-size:24px; font-weight:200; color:var(--text-muted); display:flex; align-items:center; padding:0 6px; align-self:center; }
     .equals-row { margin-top:18px; max-width:1050px; width:100%; background:linear-gradient(135deg,rgba(134,188,37,.07),rgba(0,180,216,.05)); border:1px solid rgba(134,188,37,.2); border-radius:10px; padding:14px 24px; text-align:center; font-size:14px; font-weight:600; color:var(--text); }
     .equals-row .eq-accent { color:var(--green); }
+
+    /* ── VIBE CODING ── */
+    .vc-wrap { display:flex; flex-direction:column; gap:36px; width:100%; max-width:1060px; margin-top:28px; }
+    .vc-quote { border-left:3px solid var(--green); background:rgba(134,188,37,.06); border-radius:0 10px 10px 0; padding:12px 20px; }
+    .vc-quote p { font-size:13.5px; font-style:italic; color:var(--text-dim); line-height:1.5; }
+    .vc-quote cite { font-size:11px; color:var(--text-muted); margin-top:4px; display:block; font-style:normal; }
+    .vc-desc { font-size:13px; color:var(--text-dim); line-height:1.6; }
+    .vc-section-label { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+    .vc-loop { display:flex; align-items:center; gap:0; }
+    .vc-loop-box { flex:1; border:1px solid rgba(134,188,37,.45); border-radius:10px; padding:12px 10px; text-align:center; font-size:13px; font-weight:700; background:rgba(134,188,37,.05); position:relative; }
+    .vc-arrow { color:var(--green); font-size:18px; padding:0 8px; flex-shrink:0; }
+    .vc-feedback { text-align:center; font-size:10px; color:rgba(134,188,37,.5); letter-spacing:1px; margin-top:4px; }
+    .vc-bottom { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .vc-tools-row { display:flex; gap:8px; }
+    .vc-tool { flex:1; background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:10px 12px; text-align:center; }
+    .vc-tool-name { font-size:12px; font-weight:700; }
+    .vc-tool-sub  { font-size:10px; color:var(--text-muted); margin-top:3px; }
+    .vc-maturity-title { font-size:clamp(1.2rem,2.2vw,1.7rem); font-weight:800; text-align:center; margin:8px 0 20px; letter-spacing:-.01em; }
+    .vc-maturity  { display:flex; gap:20px; justify-content:center; width:100%; }
+    .vc-mat-col { flex:1; max-width:420px; background:var(--bg3); border:1px solid var(--border); border-radius:14px; padding:24px 28px; }
+    .vc-mat-col ul { list-style:none; margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+    .vc-mat-col li { font-size:15px; color:var(--text-dim); padding-left:18px; position:relative; line-height:1.5; }
+    .vc-mat-col li::before { content:'▪'; position:absolute; left:0; font-size:11px; top:2px; }
+    .vc-mat-strong li::before { color:var(--green); }
+    .vc-mat-weak   li::before { color:#e05555; }
+    .vc-mat-head { font-size:11px; font-weight:700; display:flex; align-items:center; gap:6px; }
+    .dot-green { width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; }
+    .dot-red   { width:8px; height:8px; border-radius:50%; background:#e05555; flex-shrink:0; }
 
     /* ── TCO TABLE ── */
     .tco-wrap { width:100%; max-width:1040px; margin-top:24px; overflow:hidden; border-radius:14px; border:1px solid var(--border); }
@@ -184,19 +225,20 @@
     .badge-poc  { background:rgba(134,188,37,.13); color:var(--green); border:1px solid rgba(134,188,37,.3); }
     .badge-mvp  { background:rgba(0,180,216,.1);   color:var(--how);   border:1px solid rgba(0,180,216,.3); }
     .badge-full { background:rgba(199,125,255,.1);  color:var(--what);  border:1px solid rgba(199,125,255,.3); }
+    .badge-tobe { background:rgba(255,180,0,.1);    color:rgba(255,180,0,.8); border:1px solid rgba(255,180,0,.3); }
 
     /* ── ROADMAP ── */
-    .roadmap-row { display:flex; gap:0; width:100%; max-width:1040px; margin-top:28px; position:relative; }
+    .roadmap-row { display:flex; gap:0; width:100%; max-width:1040px; margin-top:52px; position:relative; }
     .roadmap-row::before { content:''; position:absolute; top:8px; left:calc(16.5% - 1px); right:calc(16.5% - 1px); height:2px; background:linear-gradient(90deg,var(--green),var(--how),var(--what)); }
-    .rm-phase { flex:1; display:flex; flex-direction:column; align-items:center; }
-    .rm-dot { width:16px; height:16px; border-radius:50%; border:2px solid; background:var(--bg); margin-bottom:18px; z-index:1; }
+    .rm-phase { flex:1; display:flex; flex-direction:column; align-items:center; align-self:stretch; }
+    .rm-dot { width:16px; height:16px; border-radius:50%; border:2px solid; background:var(--bg); margin-bottom:18px; z-index:1; flex-shrink:0; }
     .rm-dot.g { border-color:var(--green); background:var(--green); box-shadow:0 0 10px var(--green); }
     .rm-dot.b { border-color:var(--how);   background:var(--how);   box-shadow:0 0 10px var(--how); }
     .rm-dot.p { border-color:var(--what);  background:var(--what);  box-shadow:0 0 10px var(--what); }
-    .rm-card { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; width:92%; text-align:center; }
+    .rm-card { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; width:92%; text-align:center; flex:1; }
     .rm-duration { font-size:9.5px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); margin-bottom:5px; }
-    .rm-title { font-size:14px; font-weight:800; margin-bottom:9px; }
-    .rm-items { font-size:11.5px; color:var(--text-dim); line-height:1.7; }
+    .rm-title { font-size:18px; font-weight:800; margin-bottom:9px; }
+    .rm-items { font-size:14px; color:var(--text-dim); line-height:1.7; }
 
     /* ── COVER ── */
     .cover-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(134,188,37,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(134,188,37,.025) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
@@ -274,7 +316,8 @@
     #footer { position:fixed; bottom:0; left:0; right:0; height:32px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:500; letter-spacing:0.5px; color:var(--text-muted); border-top:1px solid var(--border); background:rgba(13,13,13,0.85); backdrop-filter:blur(8px); z-index:99; }
 
     #section-indicator { position:fixed; top:22px; right:28px; display:flex; gap:8px; z-index:100; }
-    .pill { font-size:10px; font-weight:700; letter-spacing:2px; padding:4px 11px; border-radius:18px; border:1px solid transparent; color:var(--text-muted); transition:all .3s; }
+    .pill { font-size:10px; font-weight:700; letter-spacing:2px; padding:4px 11px; border-radius:18px; border:1px solid transparent; color:var(--text-muted); transition:all .3s; cursor:pointer; }
+    .pill:hover { opacity:.8; }
     .pill.why-p  { border-color:rgba(134,188,37,.18); }
     .pill.how-p  { border-color:rgba(0,180,216,.18); }
     .pill.what-p { border-color:rgba(199,125,255,.18); }
@@ -308,9 +351,9 @@
 
 <div id="progress"></div>
 <div id="section-indicator">
-  <span class="pill why-p">WHY</span>
-  <span class="pill how-p">HOW</span>
-  <span class="pill what-p">WHAT</span>
+  <span class="pill why-p" onclick="goToSection('why')">WHY</span>
+  <span class="pill how-p" onclick="goToSection('how')">HOW</span>
+  <span class="pill what-p" onclick="goToSection('what')">WHAT</span>
 </div>
 <div id="deck"></div>
 <div id="footer">Copyright 2026 Technology S.A. All rights reserved.</div>
@@ -348,6 +391,8 @@ function doLogin() {
 
 // Allow Enter key to submit
 document.addEventListener('DOMContentLoaded', () => {
+  if (!AUTH.enabled) document.getElementById('login-screen').style.display = 'none';
+
   ['login-user','login-pass'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => {
       if (e.key === 'Enter') doLogin();
@@ -435,6 +480,66 @@ const render = {
       </div>`;
   },
 
+  'cards-consequence'(d) {
+    const cls = d.accent === 'how' ? 'b' : d.accent === 'what' ? 'p' : 'g';
+    const [c1, c2, c3] = d.cards;
+    return `
+      ${tag(null)}
+      <div class="headline">${parseAccent(d.headline)}</div>
+      <div class="subheadline">${d.subheadline}</div>
+      <div class="cc-top">
+        <div class="card ${cls}">
+          ${c1.icon ? `<div class="card-icon">${c1.icon}</div>` : ''}
+          <div class="card-title">${c1.title}</div>
+          <div class="card-body">${c1.body}</div>
+        </div>
+        <div class="card ${cls}">
+          ${c2.icon ? `<div class="card-icon">${c2.icon}</div>` : ''}
+          <div class="card-title">${c2.title}</div>
+          <div class="card-body">${c2.body}</div>
+        </div>
+      </div>
+      <div class="cc-connectors">
+        <svg viewBox="0 0 860 48" preserveAspectRatio="none">
+          <path d="M215,0 L430,44" stroke="rgba(134,188,37,0.45)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+          <path d="M645,0 L430,44" stroke="rgba(134,188,37,0.45)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+          <circle cx="430" cy="44" r="3.5" fill="var(--green)" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="cc-bottom">
+        <div class="card-consequence">
+          <div class="consequence-label">Consequência</div>
+          ${c3.icon ? `<div class="card-icon">${c3.icon}</div>` : ''}
+          <div class="card-title">${c3.title}</div>
+          <div class="card-body">${c3.body}</div>
+        </div>
+      </div>`;
+  },
+
+  'vibe-coding'(d) {
+    return `
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
+      ${tag(d.section)}
+      <div class="headline">${parseAccent(d.headline)}</div>
+      <div class="vc-wrap">
+        <div class="vc-quote" style="text-align:center">
+          <p>"${d.quote.text}"</p>
+          <cite>— ${d.quote.author}</cite>
+        </div>
+        <div class="vc-maturity-title">${d.maturityLabel}</div>
+        <div class="vc-maturity">
+          <div class="vc-mat-col vc-mat-strong">
+            <div class="vc-mat-head"><span class="dot-green"></span>${d.strong.label}</div>
+            <ul>${d.strong.items.map(i => `<li>${i}</li>`).join('')}</ul>
+          </div>
+          <div class="vc-mat-col vc-mat-weak">
+            <div class="vc-mat-head"><span class="dot-red"></span>${d.weak.label}</div>
+            <ul>${d.weak.items.map(i => `<li>${i}</li>`).join('')}</ul>
+          </div>
+        </div>
+      </div>`;
+  },
+
   'agent-diagram'(d) {
     return `
       ${tag(null)}
@@ -491,7 +596,7 @@ const render = {
             <div class="pillar-tag">${p.tag}</div>
           </div>`).join('')}
       </div>
-      <div class="equals-row">= <span class="eq-accent" style="margin-left:10px">${d.equalsText}</span></div>`;
+      ${d.equalsText ? `<div class="equals-row">= <span class="eq-accent" style="margin-left:10px">${d.equalsText}</span></div>` : ''}`;
   },
 
   tco(d) {
@@ -536,6 +641,7 @@ const render = {
         <div class="proto-sub">${f.sub}</div>
       </div>`).join('');
     return `
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
@@ -548,16 +654,16 @@ const render = {
       <tr>
         <td class="epic-name">${e.name}</td>
         <td>${e.desc}</td>
-        <td>${e.scope}</td>
-        <td><span class="badge badge-${e.phase}">${e.phase === 'poc' ? 'POC' : e.phase === 'mvp' ? 'MVP' : 'Full'}</span></td>
+        <td><span class="badge badge-${e.phase}">${e.phase === 'poc' ? 'POC' : e.phase === 'tobe' ? 'TO BE' : e.phase === 'mvp' ? 'MVP' : 'Full'}</span></td>
       </tr>`).join('');
     return `
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
       <div class="epic-wrap">
         <table class="epic-table">
-          <thead><tr><th>Épico</th><th>Descrição</th><th>Âmbito</th><th>Fase</th></tr></thead>
+          <thead><tr><th>Épico</th><th>Descrição</th><th>Fase</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
@@ -574,11 +680,20 @@ const render = {
         </div>
       </div>`).join('');
     return `
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;"><span style="font-size:clamp(6rem,18vw,14rem);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,0,0.12);transform:rotate(-15deg);user-select:none;white-space:nowrap;">REVER</span></div>
       ${tag(null)}
       <div class="headline">${parseAccent(d.headline)}</div>
       <div class="subheadline">${d.subheadline}</div>
-      <div class="roadmap-row">${phases}</div>
-      ${calloutHtml(d.callout, 'what')}`;
+      <div class="roadmap-row">${phases}</div>`;
+  },
+
+  'logo-end'(d) {
+    return `
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="font-size:clamp(5rem,14vw,13rem);font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1;user-select:none;">
+          ${d.name}<span style="color:var(--green);">.</span>
+        </div>
+      </div>`;
   },
 
   closing(d) {
@@ -600,7 +715,7 @@ const render = {
 const deck = document.getElementById('deck');
 const pills = document.querySelectorAll('#section-indicator .pill');
 
-SLIDES.forEach((slide, i) => {
+SLIDES.filter(s => !s.hidden).forEach((slide, i) => {
   const el = document.createElement('div');
   el.className = 'slide' + (i === 0 ? ' active' : '');
   el.dataset.section = slide.section || '';
@@ -634,6 +749,31 @@ function updateUI() {
     const p = document.querySelector(`.pill.${sec}-p`);
     if (p) p.classList.add('on');
   }
+}
+
+function goToSection(section) {
+  const idx = Array.from(allSlides).findIndex(s => s.dataset.section === section);
+  if (idx === -1 || idx === current) return;
+  goToIndex(idx);
+}
+
+function goToIndex(idx) {
+  if (animating || idx === current) return;
+  animating = true;
+  const dir = idx > current ? 1 : -1;
+  const cur = allSlides[current];
+  const nxt = allSlides[idx];
+
+  cur.classList.remove('active');
+  cur.classList.add('exit');
+  nxt.style.transform = `translateX(${dir > 0 ? 60 : -60}px)`;
+  nxt.offsetHeight;
+  nxt.style.transform = '';
+  nxt.classList.add('active');
+
+  setTimeout(() => { cur.classList.remove('exit'); animating = false; }, 560);
+  current = idx;
+  updateUI();
 }
 
 function navigate(dir) {
