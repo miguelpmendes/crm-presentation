@@ -276,7 +276,7 @@ const SLIDES = [
         items: [
           'Máxima flexibilidade funcional e técnica',
           'Solução sem legado nem limitações de plataforma',
-          'Modelo de dados e experiência de utilizador desenhados para o negócio'
+          'Modelo de dados e experiência de utilizador desenhados como "folha em branco"'
         ],
         tag: { text: 'VER DETALHE NA SECÇÃO SEGUINTE' }
       },
@@ -290,8 +290,7 @@ const SLIDES = [
             'Extração e mapeamento do modelo de dados existente',
             'Migração de histórico de clientes e interações',
             'Replicação e validação de fluxos de negócio críticos',
-            'Operação em paralelo para garantia de continuidade',
-            'Formação e gestão da mudança'
+            'Aceleração tecnológica por via da utilização de agentes'
           ]
         }
       }
@@ -613,7 +612,20 @@ const UI_STRINGS = {
     loginUserPlaceholder: 'utilizador',
     loginPassLabel: 'Password',
     loginBtn: 'Entrar',
-    loginError: 'Credenciais inválidas. Tente novamente.'
+    loginError: 'Credenciais inválidas. Tente novamente.',
+    commentsPanelTitle: 'Comentários',
+    commentsEmpty: 'Sem comentários neste slide.',
+    commentsTextPlaceholder: 'Escreva um comentário...',
+    commentsAddBtn: 'Adicionar',
+    commentsResolveBtn: 'Resolver',
+    commentsReopenBtn: 'Reabrir',
+    commentsDeleteBtn: 'Apagar',
+    commentsExportBtn: 'Exportar comentários',
+    commentsImportBtn: 'Importar comentários',
+    commentsImportMerge: 'comentário(s) importado(s).',
+    commentsNameModal: 'Como quer ser identificado nos comentários?',
+    commentsNameBtn: 'Confirmar',
+    commentsResolved: 'Resolvido'
   },
   en: {
     consequenceLabel: 'Consequence',
@@ -629,7 +641,20 @@ const UI_STRINGS = {
     loginUserPlaceholder: 'username',
     loginPassLabel: 'Password',
     loginBtn: 'Sign in',
-    loginError: 'Invalid credentials. Please try again.'
+    loginError: 'Invalid credentials. Please try again.',
+    commentsPanelTitle: 'Comments',
+    commentsEmpty: 'No comments on this slide.',
+    commentsTextPlaceholder: 'Write a comment...',
+    commentsAddBtn: 'Add',
+    commentsResolveBtn: 'Resolve',
+    commentsReopenBtn: 'Reopen',
+    commentsDeleteBtn: 'Delete',
+    commentsExportBtn: 'Export comments',
+    commentsImportBtn: 'Import comments',
+    commentsImportMerge: 'comment(s) imported.',
+    commentsNameModal: 'How would you like to be identified in comments?',
+    commentsNameBtn: 'Confirm',
+    commentsResolved: 'Resolved'
   }
 };
 
@@ -874,7 +899,7 @@ const SLIDES_EN = [
         items: [
           'Maximum functional and technical flexibility',
           'No legacy constraints or platform limitations',
-          'Data model and user experience designed for the business'
+          'Data model and user experience designed as a "blank slate"'
         ],
         tag: { text: 'SEE DETAIL IN THE NEXT SECTION' }
       },
@@ -888,8 +913,7 @@ const SLIDES_EN = [
             'Extraction and mapping of the existing data model',
             'Migration of client history and interactions',
             'Replication and validation of critical business flows',
-            'Parallel operation for continuity assurance',
-            'Training and change management'
+            'Technology acceleration through the use of agents'
           ]
         }
       }
